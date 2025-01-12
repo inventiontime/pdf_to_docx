@@ -33,7 +33,7 @@ def translate_text(text):
     
     # Generate a response using the Gemini API
     response = model.generate_content(prompt)
-    sleep(4)
+    sleep(2)
     
     # Extract the translated text
     if response:

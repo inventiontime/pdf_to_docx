@@ -1,1 +1,5 @@
 streamlit
+google-generativeai
+python-docx
+pdf2image
+pillow
