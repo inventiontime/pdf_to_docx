@@ -1,25 +1,26 @@
-from dotenv import load_dotenv
-import os
+import streamlit as st
 import json
 import google.generativeai as genai
+from time import sleep
 
+model = None
 
-load_dotenv('.env')
-api_key = os.environ.get("API_KEY")
-genai.configure(api_key=api_key)
+def init(api_key):
+    global model
+    genai.configure(api_key=api_key)
 
-# Create the model
-generation_config = {
-    "temperature": 1,
-    "top_p": 0.95,
-    "top_k": 40,
-    "max_output_tokens": 8192,
-}
+    # Create the model
+    generation_config = {
+        "temperature": 1,
+        "top_p": 0.95,
+        "top_k": 40,
+        "max_output_tokens": 8192,
+    }
 
-model = genai.GenerativeModel(
-    model_name="gemini-2.0-flash-exp",
-    generation_config=generation_config,
-)
+    model = genai.GenerativeModel(
+        model_name="gemini-2.0-flash-exp",
+        generation_config=generation_config,
+    )
 
 
 
@@ -28,10 +29,11 @@ def translate_text(text):
     '''Translates text to English using the Gemini API.'''
 
     # Create a prompt for translation
-    prompt = f"Translate the following text to English and output only the translation: '{text}'"
+    prompt = f"Translate the following text to '{st.session_state['language']}' and output only the translation: '{text}'"
     
     # Generate a response using the Gemini API
     response = model.generate_content(prompt)
+    sleep(4)
     
     # Extract the translated text
     if response:
@@ -49,7 +51,7 @@ def translate_json(json_data):
             block_data["old_text"] = text
             block_data["text"] = translate_text(text)
 
-    with open("text_with_translations.json", "w", encoding="utf-8") as file:
+    with open("output2.json", "w", encoding="utf-8") as file:
         json.dump(json_data, file, ensure_ascii=False, indent=4)
 
     return json_data

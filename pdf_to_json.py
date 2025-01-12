@@ -4,33 +4,35 @@ import google.generativeai as genai
 import json
 from pdf2image import convert_from_path
 import PIL.Image
+import shutil
 
+model = None
 
-load_dotenv('.env')
-apiKeys = os.environ.get("API_KEY")
-genai.configure(api_key=apiKeys)
+def init(api_key):
+  global model
+  genai.configure(api_key=api_key)
 
-#Choose a Gemini model.
-model = genai.GenerativeModel(model_name="gemini-2.0-flash-exp")
+  #Choose a Gemini model.
+  model = genai.GenerativeModel(model_name="gemini-2.0-flash-exp")
 
-# Create the model
-generation_config = {
-  "temperature": 1,
-  "top_p": 0.95,
-  "top_k": 40,
-  "max_output_tokens": 8192,
-  "response_mime_type": "application/json",
-}
+  # Create the model
+  generation_config = {
+    "temperature": 1,
+    "top_p": 0.95,
+    "top_k": 40,
+    "max_output_tokens": 8192,
+    "response_mime_type": "application/json",
+  }
 
-model = genai.GenerativeModel(
-  model_name="gemini-2.0-flash-exp",
-  generation_config=generation_config,
-)
+  model = genai.GenerativeModel(
+    model_name="gemini-2.0-flash-exp",
+    generation_config=generation_config,
+  )
 
 def load_pdf(file):
     if os.path.exists('images'):
-        os.system('rm -r images')
-    os.system('mkdir images')
+      shutil.rmtree('images')  # Recursively delete the folder
+    os.makedirs('images', exist_ok=True)  # Create the folder
     images = convert_from_path(file)
     num_pages = len(images)
 
@@ -53,4 +55,9 @@ def extract(file):
   for i in range(len(images)):
       response = model.generate_content([prompt,images[i]])
       extracted_text.append(json.loads(response.text))
+      print(i)
+
+  with open("extract.json", "w", encoding="utf-8") as file:
+    json.dump(extracted_text, file, ensure_ascii=False, indent=4)
+
   return extracted_text

@@ -1,0 +1,94 @@
+[
+    [
+        {
+            "text": "2. IITD Buddy: Intelligent Campus Navigator",
+            "font-family": "sans-serif",
+            "font-size": "18",
+            "font-weight": "bold",
+            "color": "black",
+            "alignment": "left",
+            "old_text": "2. IITD Buddy: Intelligent Campus Navigator"
+        },
+        {
+            "text": "Problem Statement:",
+            "font-family": "sans-serif",
+            "font-size": "14",
+            "font-weight": "bold",
+            "color": "black",
+            "alignment": "left",
+            "old_text": "Problem Statement:"
+        },
+        {
+            "text": "Design an AI assistant to enhance student life at IIT Delhi. It should provide guidance on academics, mentorship, hostel facilities, campus events, local hotspots, and more, with room for your creativity to add unique features. Create a solution that simplifies campus navigation and enriches the student experience.",
+            "font-family": "sans-serif",
+            "font-size": "14",
+            "font-weight": "normal",
+            "color": "black",
+            "alignment": "left",
+            "old_text": "Design an Al assistant to enhance student life at IIT Delhi. It should provide guidance on academics,\nmentorship, hostel facilities, campus events, local hotspots, and more, with room for your creativity to add\nunique features. Create a solution that simplifies campus navigation and enriches the student experience."
+        },
+        {
+            "text": "Methodology:",
+            "font-family": "sans-serif",
+            "font-size": "14",
+            "font-weight": "bold",
+            "color": "black",
+            "alignment": "left",
+            "old_text": "Methodology:"
+        },
+        {
+            "text": "1. Get familiar with LLM APIs like Groq",
+            "font-family": "sans-serif",
+            "font-size": "14",
+            "font-weight": "normal",
+            "color": "black",
+            "alignment": "left",
+            "old_text": "1. Get familiar with LLM APIs like Groq"
+        },
+        {
+            "text": "2. Gather data points such as: Courses of Study, the BSW Website, Yash Aggarwal sir's resources, Department Sites or Google Drives, YouTube Video Transcripts, Professors' Web Pages (Load them normally in text format; for now, don't worry about formatting).",
+            "font-family": "sans-serif",
+            "font-size": "14",
+            "font-weight": "normal",
+            "color": "black",
+            "alignment": "left",
+            "old_text": "2. Accumulate data points like: Courses of Study, the BSW Website, Yash Aggarwal sir's resources,\nDepartment Sites or Google Drives, Youtube Video Transcripts, Professors Web Pages (Load\nthem normally in text format; for starting don't mess up your mind with formatting)"
+        },
+        {
+            "text": "(Note: Start with a small database and slowly we can add more!)",
+            "font-family": "sans-serif",
+            "font-size": "12",
+            "font-weight": "normal",
+            "color": "black",
+            "alignment": "left",
+            "old_text": "(Note: Start with small database and slowly we can add more!)"
+        },
+        {
+            "text": "3. Use Qdrant to create a search database.",
+            "font-family": "sans-serif",
+            "font-size": "14",
+            "font-weight": "normal",
+            "color": "black",
+            "alignment": "left",
+            "old_text": "3. Use Qdrant to make a search database"
+        },
+        {
+            "text": "I",
+            "font-family": "sans-serif",
+            "font-size": "12",
+            "font-weight": "normal",
+            "color": "black",
+            "alignment": "center",
+            "old_text": "I"
+        },
+        {
+            "text": "4. Retrieve relevant RAG information from the database and provide it to the LLM as context to generate the answer.",
+            "font-family": "sans-serif",
+            "font-size": "14",
+            "font-weight": "normal",
+            "color": "black",
+            "alignment": "left",
+            "old_text": "4. Get relevant RAG information from the database and give it to LLM as context to generate the\nanswer."
+        }
+    ]
+]
